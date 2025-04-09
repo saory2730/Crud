@@ -1,0 +1,319 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffc0dc;
+    color: #2e2e2e;
+    line-height: 1.6;
+    padding-top: 80px; /* para que no se oculte el contenido bajo el header fijo */
+}
+
+/* Encabezado */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #A4195B;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    flex-wrap: wrap;
+}
+
+.logo-nombre {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-nombre img {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-nombre span {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: white;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+header nav a:hover {
+    color: #4a90e2;
+}
+
+/* Sección de Inicio */
+.inicio {
+    background-image: url('../img/fondo_inicio.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.inicio::after {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.inicio .contenido {
+    position: relative;
+    z-index: 1;
+}
+
+.inicio h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.inicio p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.btn, .btn-secundario {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 0 10px;
+    display: inline-block;
+    transition: background 0.3s ease;
+}
+
+.btn {
+    background-color: #4a90e2;
+    color: white;
+}
+
+.btn:hover {
+    background-color: #4a90e2;
+}
+
+.btn-secundario {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secundario:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Productos */
+.productos {
+    padding: 60px 20px;
+    background-color: #fff1e6;
+    text-align: center;
+}
+
+.productos h2 {
+    margin-bottom: 40px;
+    color: #4B0600;
+}
+
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.producto {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.producto:hover {
+    transform: translateY(-5px);
+}
+
+.producto img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.producto h3 {
+    margin-top: 10px;
+    color: #4B0600;
+}
+
+/* Carrusel */
+.proximamente {
+    background-color: #fef3e7;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.proximamente h2 {
+    margin-bottom: 40px;
+    color: #4B0600;
+}
+
+.carrusel {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.slider {
+    display: flex;
+    gap: 20px;
+    animation: slide 25s linear infinite;
+}
+
+.slider img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Guía de Tallas */
+.guia-tallas {
+    padding: 40px 20px;
+    background-color: #fffaf2;
+    text-align: center;
+}
+
+.guia-tallas h2 {
+    color: #4B0600;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+.guia-contenido{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    text-align: left;
+} 
+
+
+.guia-imagen img {
+    width: 450px;
+    max-height: 550px;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.guia-texto{
+    max-width: 350px;
+    font-size: 16px;
+    color: #333;
+    
+}
+
+/* Contacto y Nosotros */
+.contacto {
+    padding: 60px 20px;
+    background-color: gray;
+    text-align: center;
+}
+
+.contacto h2 {
+    color: #4B0600;
+    margin-bottom: 20px;
+}
+
+.contacto ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1rem;
+}
+
+.contacto li {
+    margin: 10px 0;
+}
+
+.nosotros{
+    text-align: center;
+}
+
+.nosotros p {
+    max-width: 800px;
+    margin: auto;
+    font-size: 1.1rem;
+}
+
+
+/* Footer */
+footer {
+    background-color: #A4195B;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+/* Responsive Nav */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .inicio h1 {
+        font-size: 2rem;
+    }
+
+    .btn, .btn-secundario {
+        display: block;
+        margin: 10px auto;
+    }
+
+    .slider img {
+        width: 250px;
+    }
+}
