@@ -3,39 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Jessica Joyería</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5">
-        <a class="navbar-brand" href="{{ route('dashboard') }}">💎 Jessica Joyería</a>
-        <div class="collapse navbar-collapse justify-content-end">
-            <ul class="navbar-nav">
-                @auth
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('categorias.index') }}">📂 Categorías</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('productos.index') }}">💍 Productos</a>
-                    </li>
-                    <li class="nav-item">
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <button class="btn btn-danger ms-3">Cerrar sesión</button>
-                        </form>
-                    </li>
-                @endauth
-                @guest
-                    <li class="nav-item">
-                        <a class="btn btn-primary" href="{{ route('login') }}">Iniciar sesión</a>
-                    </li>
-                @endguest
-            </ul>
-        </div>
-    </nav>
+<body class="bg-gradient-to-r from-pink-50 to-blue-50 min-h-screen flex">
+    <!-- Sidebar -->
+    <aside class="w-60 bg-white shadow-md p-4">
+        <h1 class="text-xl font-bold text-pink-600 mb-6">✨ Jessica Joyería ✨</h1>
+        <nav class="space-y-2">
+            <a href="{{ route('productos.index') }}" class="block text-gray-800 hover:text-blue-600">Productos 💍</a>
+            <a href="{{ route('categorias.index') }}" class="block text-gray-800 hover:text-yellow-600">Categorías 📁</a>
+        </nav>
+    </aside>
 
-    <main class="py-4">
+    <!-- Contenido principal -->
+    <main class="flex-1 p-8">
         @yield('content')
     </main>
 </body>
 </html>
+

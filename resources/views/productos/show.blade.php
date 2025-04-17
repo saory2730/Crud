@@ -12,8 +12,5 @@
         <p><strong>Precio:</strong> S/. {{ number_format($producto->precio, 2, ',', '.') }}</p>
     </div>
 
-    <div class="mt-6 text-center">
-        <a href="{{ route('productos.index') }}" class="text-blue-600 hover:underline">← Volver a la lista</a>
-    </div>
 </div>
 @endsection

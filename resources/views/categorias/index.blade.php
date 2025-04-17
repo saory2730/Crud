@@ -1,41 +1,40 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2 class="text-2xl font-bold text-gray-800 mb-6">Listado de Categorías</h2>
+<div class="container mx-auto py-6">
+        <h2 class="text-3xl font-bold text-center text-black-600 mb-6">📁 Categorias</h2>
+        <a href="{{ route('categorias.create') }}" class="bg-blue-400 hover:bg-blue-500 text-white px-4 py-2 rounded-lg mb-4 inline-block">
+            ➕ Agregar Categoria
+        </a>
 
-    <a href="{{ route('categorias.create') }}" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded mb-3 inline-block">
-        Nueva Categoría
-    </a>
-
-    <div class="overflow-x-auto bg-white rounded-lg shadow-lg">
+    
+    <div class="overflow-x-auto bg-white rounded-lg ">
         <table class="min-w-full table-auto">
             <thead class="bg-gray-800 text-white">
                 <tr>
-                    <th class="px-4 py-2 text-left">ID</th>
-                    <th class="px-4 py-2 text-left">Nombre</th>
-                    <th class="px-4 py-2 text-left">Descripción</th>
-                    <th class="px-4 py-2 text-left">Estado</th>
-                    <th class="px-4 py-2 text-left">Acciones</th>
+                    <th class="px-6 py-3 text-left">ID</th>
+                    <th class="px-6 py-3 text-left">🔠 Nombre</th>
+                    <th class="px-6 py-3 text-left">📍 Estado</th>
+                    <th class="px-6 py-3 text-left">⚙️ Acciones</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="bg-white divide-y divide-gray-100">
                 @foreach ($categorias as $categoria)
-                    <tr class="border-b">
-                        <td class="px-4 py-2">{{ $categoria->id }}</td>
-                        <td class="px-4 py-2">{{ $categoria->nombre }}</td>
-                        <td class="px-4 py-2">{{ $categoria->descripcion }}</td>
-                        <td class="px-4 py-2">
-                            <span class="inline-block py-1 px-3 rounded-full text-white {{ $categoria->estado == 'activo' ? 'bg-green-500' : 'bg-gray-500' }}">
+                    <tr class="hover:bg-pink-50 transition-colors">
+                        <td class="px-6 py-4">{{ $categoria->id }}</td>
+                        <td class="px-6 py-4 font-medium text-gray-900">{{ $categoria->nombre }}</td>
+                        <td class="px-6 py-4">
+                            <span class="inline-block px-3 py-1 rounded-full text-white text-sm {{ $categoria->estado == 'activo' ? 'bg-green-500' : 'bg-gray-400' }}">
                                 {{ ucfirst($categoria->estado) }}
                             </span>
                         </td>
-                        <td class="px-4 py-2">
-                            <a href="{{ route('categorias.show', $categoria->id) }}" class="text-blue-600 hover:underline">Ver</a>
-                            <a href="{{ route('categorias.edit', $categoria->id) }}" class="text-yellow-600 hover:underline ml-2">Editar</a>
-                            <form action="{{ route('categorias.destroy', $categoria->id) }}" method="POST" style="display:inline-block;" onsubmit="return confirm('¿Seguro que deseas eliminar esta categoría?')">
+                        <td class="px-6 py-4 text-lg space-x-3">
+                            <a href="{{ route('categorias.show', $categoria->id) }}" class="hover:scale-110 transition">👁️</a>
+                            <a href="{{ route('categorias.edit', $categoria->id) }}" class="hover:scale-110 transition">✏️</a>
+                            <form action="{{ route('categorias.destroy', $categoria->id) }}" method="POST" class="inline" onsubmit="return confirm('¿Eliminar esta categoría?')">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="text-red-600 hover:underline ml-2">Eliminar</button>
+                                <button type="submit" class="hover:scale-110 transition">🗑️</button>
                             </form>
                         </td>
                     </tr>
@@ -43,4 +42,5 @@
             </tbody>
         </table>
     </div>
+</div>
 @endsection
