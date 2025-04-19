@@ -2,10 +2,12 @@
 
 @section('content')
 <div class="container mx-auto py-6">
+        @can ('categoria.create')
         <h2 class="text-3xl font-bold text-center text-black-600 mb-6">📁 Categorias</h2>
         <a href="{{ route('categorias.create') }}" class="bg-blue-400 hover:bg-blue-500 text-white px-4 py-2 rounded-lg mb-4 inline-block">
             ➕ Agregar Categoria
         </a>
+        @endcan
 
     
     <div class="overflow-x-auto bg-white rounded-lg ">
